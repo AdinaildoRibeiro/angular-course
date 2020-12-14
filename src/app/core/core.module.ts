@@ -2,13 +2,25 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AlertComponent } from '../shared/components/alert/alert.component';
 import { RequestInterceptor } from './auth/request.interceptor';
+import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    declarations: [HeaderComponent],
-    exports: [HeaderComponent],
-    imports: [CommonModule, RouterModule],
+    declarations: [
+        HeaderComponent, 
+        FooterComponent
+    ],
+    exports: [
+        HeaderComponent, 
+        FooterComponent
+    ],
+    imports: [
+        CommonModule, 
+        RouterModule,
+        AlertComponent
+    ],
     providers: [{
         provide: HTTP_INTERCEPTORS,
         useClass: RequestInterceptor,
